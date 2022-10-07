@@ -71,16 +71,11 @@ variable "attach_external_dns_policy" {
 }
 
 
-variable "domain_name" {
+variable "zone_id" {
   type = string
   default = ""
 }
 
-variable "domain_is_private" {
-  type = bool
-  default = false
-  description = "(optional) describe your variable"
-}
 variable "attach_cert_manager_policy" {
   type    = bool
   default = false
