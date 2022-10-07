@@ -30,7 +30,6 @@ variable "release" {
 }
 
 variable "chart" {
-  type = list(string)
 }
 
 variable "chart_version" {
@@ -52,6 +51,7 @@ variable "sa" {
 }
 
 variable "values" {
+  type = list(string)
 
 }
 
