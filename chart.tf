@@ -1,7 +1,7 @@
 module "irsa" {
   source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
 
-  role_name = "${var.uniqueName}_${var.release}_${var.chart}"
+  role_name = "${var.uniqueName}_${var.namespace}_${var.sa}"
 
   attach_ebs_csi_policy = var.attach_ebs_csi_policy
 
