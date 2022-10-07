@@ -14,9 +14,15 @@ module "irsa" {
   ]
 
   role_name                     = "${var.uniqueName}_${var.release}_${var.chart}"
+
   attach_ebs_csi_policy         = var.attach_ebs_csi_policy
+
   attach_external_dns_policy    = var.attach_external_dns_policy
   external_dns_hosted_zone_arns = local.dns_arns
+
+  attach_cert_manager_policy    = var.attach_cert_manager_policy
+  cert_manager_hosted_zone_arns = [local.dns_arns]
+
 
   oidc_providers = {
     main = {
