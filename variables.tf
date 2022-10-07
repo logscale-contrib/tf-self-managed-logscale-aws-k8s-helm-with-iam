@@ -33,7 +33,7 @@ variable "chart" {
 
 }
 
-variable "version" {
+variable "chart_version" {
 
 }
 
