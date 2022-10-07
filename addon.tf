@@ -1,8 +1,32 @@
+resource "kubernetes_namespace" "ns" {
+  count = var.attach_external_dns_policy ? 1 : 0
+  metadata {
+    name = var.namespace
+  }
+}
+
+data "aws_route53_zone" "selected" {
+  count = var.attach_external_dns_policy ? 1 : 0
+  name         = var.domain_name
+  private_zone = var.domain_is_private
+}
+
+
+locals {
+  dns_arns = var.attach_external_dns_policy ? [data.aws_route53_zone.selected.arn] : []
+}
+
 module "irsa" {
   source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
 
-  role_name             = "${var.uniqueName}_${var.release}_${var.chart}"
-  attach_ebs_csi_policy = true
+  depends_on = [
+    kubernetes_namespace.ns
+  ]
+
+  role_name                  = "${var.uniqueName}_${var.release}_${var.chart}"
+  attach_ebs_csi_policy      = var.attach_ebs_csi_policy
+  attach_external_dns_policy = var.attach_external_dns_policy
+  external_dns_hosted_zone_arns = local.dns_arns
 
   oidc_providers = {
     main = {

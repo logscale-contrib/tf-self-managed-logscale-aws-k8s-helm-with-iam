@@ -58,3 +58,14 @@ variable "values" {
 variable "value_arn" {
 
 }
+
+
+variable "attach_ebs_csi_policy" {
+  type    = bool
+  default = false
+}
+
+variable "attach_external_dns_policy" {
+  type    = bool
+  default = false
+}
