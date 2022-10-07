@@ -69,3 +69,15 @@ variable "attach_external_dns_policy" {
   type    = bool
   default = false
 }
+
+
+variable "domain_name" {
+  type = string
+  default = ""
+}
+
+variable "domain_is_private" {
+  type = bool
+  default = false
+  description = "(optional) describe your variable"
+}

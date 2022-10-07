@@ -43,7 +43,7 @@ module "irsa" {
 
 
 
-resource "helm_release" "ebs_csi" {
+resource "helm_release" "chart" {
 
   name             = var.release
   namespace        = var.namespace
