@@ -6,14 +6,14 @@ resource "kubernetes_namespace" "ns" {
 }
 
 data "aws_route53_zone" "selected" {
-  count = var.attach_external_dns_policy ? 1 : 0
+  count        = var.attach_external_dns_policy ? 1 : 0
   name         = var.domain_name
   private_zone = var.domain_is_private
 }
 
 
 locals {
-  dns_arns = var.attach_external_dns_policy ? [data.aws_route53_zone.selected.arn] : []
+  dns_arns = var.attach_external_dns_policy ? [data.aws_route53_zone.selected[0].arn] : []
 }
 
 module "irsa" {
@@ -23,9 +23,9 @@ module "irsa" {
     kubernetes_namespace.ns
   ]
 
-  role_name                  = "${var.uniqueName}_${var.release}_${var.chart}"
-  attach_ebs_csi_policy      = var.attach_ebs_csi_policy
-  attach_external_dns_policy = var.attach_external_dns_policy
+  role_name                     = "${var.uniqueName}_${var.release}_${var.chart}"
+  attach_ebs_csi_policy         = var.attach_ebs_csi_policy
+  attach_external_dns_policy    = var.attach_external_dns_policy
   external_dns_hosted_zone_arns = local.dns_arns
 
   oidc_providers = {
