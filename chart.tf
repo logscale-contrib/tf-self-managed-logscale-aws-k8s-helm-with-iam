@@ -1,11 +1,3 @@
-resource "kubernetes_namespace" "ns" {
-  count = var.attach_external_dns_policy ? 1 : 0
-  metadata {
-    name = var.namespace
-  }
-}
-
-
 module "irsa" {
   source = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
 
@@ -49,7 +41,7 @@ resource "helm_release" "chart" {
   repository       = var.repository
   chart            = var.chart
   version          = var.chart_version
-  create_namespace = false
+  create_namespace = var.create_namespace
 
   values = var.values
 
