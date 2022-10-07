@@ -25,7 +25,7 @@ resource "helm_release" "ebs_csi" {
   namespace        = var.namespace
   repository       = var.repository
   chart            = var.chart
-  version          = var.version
+  version          = var.chart_version
   create_namespace = false
 
   values = var.values
