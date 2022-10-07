@@ -28,9 +28,6 @@ module "irsa" {
 
 
 resource "helm_release" "chart" {
-  depends_on = [
-    kubernetes_namespace.ns
-  ]
 
   name             = var.release
   namespace        = var.namespace
