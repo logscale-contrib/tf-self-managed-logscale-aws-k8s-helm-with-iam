@@ -21,7 +21,7 @@ module "irsa" {
   external_dns_hosted_zone_arns = local.dns_arns
 
   attach_cert_manager_policy    = var.attach_cert_manager_policy
-  cert_manager_hosted_zone_arns = [local.dns_arns]
+  cert_manager_hosted_zone_arns = local.dns_arns
 
 
   oidc_providers = {
