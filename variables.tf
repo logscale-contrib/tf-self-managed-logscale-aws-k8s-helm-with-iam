@@ -81,3 +81,7 @@ variable "domain_is_private" {
   default = false
   description = "(optional) describe your variable"
 }
+variable "attach_cert_manager_policy" {
+  type    = bool
+  default = false
+}
