@@ -13,9 +13,9 @@ module "irsa" {
     kubernetes_namespace.ns
   ]
 
-  role_name                     = "${var.uniqueName}_${var.release}_${var.chart}"
+  role_name = "${var.uniqueName}_${var.release}_${var.chart}"
 
-  attach_ebs_csi_policy         = var.attach_ebs_csi_policy
+  attach_ebs_csi_policy = var.attach_ebs_csi_policy
 
   attach_external_dns_policy    = var.attach_external_dns_policy
   external_dns_hosted_zone_arns = local.dns_arns
@@ -40,6 +40,9 @@ module "irsa" {
 
 
 resource "helm_release" "chart" {
+  depends_on = [
+    kubernetes_namespace.ns
+  ]
 
   name             = var.release
   namespace        = var.namespace
