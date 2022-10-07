@@ -85,3 +85,8 @@ variable "attach_cert_manager_policy" {
   type    = bool
   default = false
 }
+variable "attach_load_balancer_controller_policy" {
+  type    = bool
+  default = false
+  
+}

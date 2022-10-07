@@ -11,6 +11,7 @@ module "irsa" {
   attach_cert_manager_policy    = var.attach_cert_manager_policy
   cert_manager_hosted_zone_arns = local.dns_arns
 
+  attach_load_balancer_controller_policy = var.attach_load_balancer_controller_policy
 
   oidc_providers = {
     main = {
