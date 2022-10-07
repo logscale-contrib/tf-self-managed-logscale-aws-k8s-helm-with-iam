@@ -32,7 +32,7 @@ resource "helm_release" "ebs_csi" {
 
   set {
     name  = var.value_arn
-    value = module.ebs_cni_irsa.iam_role_arn
+    value = module.irsa.iam_role_arn
     type  = "string"
   }
 }
