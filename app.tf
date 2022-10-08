@@ -1,3 +1,6 @@
+locals {
+  values = yamlencode(var.values)
+}
 resource "kubectl_manifest" "app" {
   #   yaml_body = templatefile(
   #     "${path.module}/app.tfpl.yaml",
@@ -36,8 +39,7 @@ spec:
       parameters:
         - name: ${var.value_arn}
           value: ${module.irsa.iam_role_arn}
-      values: |
-        ${var.values}
+      values: ${local.values}
   destination:
     namespace: ${var.namespace}
   syncPolicy:
