@@ -28,21 +28,21 @@ module "irsa" {
 
 
 
-resource "helm_release" "chart" {
+# resource "helm_release" "chart" {
 
-  name             = var.release
-  namespace        = var.namespace
-  repository       = var.repository
-  chart            = var.chart
-  version          = var.chart_version
-  create_namespace = var.create_namespace
+#   name             = var.release
+#   namespace        = var.namespace
+#   repository       = var.repository
+#   chart            = var.chart
+#   version          = var.chart_version
+#   create_namespace = var.create_namespace
 
-  values = var.values
+#   values = var.values
 
-  set {
-    name  = var.value_arn
-    value = module.irsa.iam_role_arn
-    type  = "string"
-  }
-}
+#   set {
+#     name  = var.value_arn
+#     value = module.irsa.iam_role_arn
+#     type  = "string"
+#   }
+# }
 
