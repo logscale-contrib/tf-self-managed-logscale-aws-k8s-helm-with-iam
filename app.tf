@@ -35,7 +35,7 @@ spec:
       releaseName: ${var.release}
       parameters:
         - name: ${var.value_arn}
-          value: ${module.iam_role_arn}
+          value: ${module.irsa.iam_role_arn}
       values: |
         ${var.values}
   destination:
