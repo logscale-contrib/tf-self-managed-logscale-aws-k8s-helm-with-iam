@@ -23,7 +23,7 @@ spec:
       releaseName: ${release}
       parameters:
         - name: ${value_arn}
-          value: ${irsa.iam_role_arn}
+          value: ${iam_role_arn}
       values: ${values}
   destination:
     namespace: ${namespace}
