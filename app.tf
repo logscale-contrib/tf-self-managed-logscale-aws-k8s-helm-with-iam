@@ -42,6 +42,6 @@ spec:
     namespace: ${var.namespace}
   syncPolicy:
     syncOptions:
-      - CreateNamespace=true
+      - CreateNamespace=${var.create_namespace}
 YAML
 }
