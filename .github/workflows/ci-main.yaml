@@ -35,3 +35,5 @@ jobs:
             semantic-release-helm
             @google/semantic-release-replace-plugin
             conventional-changelog-conventionalcommits
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
