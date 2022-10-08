@@ -72,7 +72,7 @@ variable "attach_external_dns_policy" {
 
 
 variable "zone_id" {
-  type = string
+  type    = string
   default = ""
 }
 
@@ -83,5 +83,5 @@ variable "attach_cert_manager_policy" {
 variable "attach_load_balancer_controller_policy" {
   type    = bool
   default = false
-  
+
 }

@@ -1,8 +1,8 @@
 
 
 provider "kubectl" {
-  apply_retry_count      = 10
-  load_config_file       = false
+  apply_retry_count = 10
+  load_config_file  = false
 
   host                   = var.eks_endpoint
   cluster_ca_certificate = base64decode(var.eks_cluster_certificate_authority_data)

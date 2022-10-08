@@ -1,6 +1,6 @@
 data "aws_route53_zone" "selected" {
-  count        = var.attach_external_dns_policy || var.attach_cert_manager_policy ? 1 : 0
-  zone_id         = var.zone_id
+  count   = var.attach_external_dns_policy || var.attach_cert_manager_policy ? 1 : 0
+  zone_id = var.zone_id
 }
 
 
