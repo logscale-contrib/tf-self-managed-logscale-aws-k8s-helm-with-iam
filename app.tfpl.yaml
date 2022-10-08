@@ -24,7 +24,10 @@ spec:
       parameters:
         - name: ${value_arn}
           value: ${iam_role_arn}
-      values: ${values}
+      values: |
+%{ for value in values ~}
+        ${value}
+%{ endfor ~}              
   destination:
     namespace: ${namespace}
   syncPolicy:
