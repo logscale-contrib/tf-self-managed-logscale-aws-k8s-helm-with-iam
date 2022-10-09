@@ -1,6 +1,6 @@
 
 
-provider "kubectl" {
+provider "kubernetes" {
   apply_retry_count = 10
   load_config_file  = false
 
