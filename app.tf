@@ -20,7 +20,7 @@ resource "kubernetes_manifest" "application_argocd___var_chart_" {
           "parameters" = [
             {
               "name"  = var.value_arn
-              "value" = var.iam_role_arn
+              "value" = module.irsa.iam_role_arn
             },
           ]
           "releaseName" = var.release
