@@ -11,6 +11,7 @@ resource "kubernetes_manifest" "application_argocd___var_chart_" {
     }
     "spec" = {
       "destination" = {
+        "server"    = "https://kubernetes.default.svc"
         "namespace" = var.namespace
       }
       "project" = "default"
