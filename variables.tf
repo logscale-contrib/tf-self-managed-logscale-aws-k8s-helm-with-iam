@@ -84,3 +84,8 @@ variable "attach_load_balancer_controller_policy" {
   default = false
 
 }
+
+variable "project" {
+  type    = string
+  default = "default"
+}
