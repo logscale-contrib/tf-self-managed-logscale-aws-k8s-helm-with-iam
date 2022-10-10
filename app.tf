@@ -31,6 +31,10 @@ resource "kubernetes_manifest" "application_argocd___var_chart_" {
         "targetRevision" = var.chart_version
       }
       "syncPolicy" = {
+        "automated" = {
+            "prune" = true
+            "selfHeal" = true
+        }
         "syncOptions" = [
           "CreateNamespace=true",
         ]
