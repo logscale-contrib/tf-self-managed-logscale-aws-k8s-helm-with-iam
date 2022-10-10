@@ -32,12 +32,12 @@ resource "kubernetes_manifest" "application_argocd___var_chart_" {
       }
       "syncPolicy" = {
         "automated" = {
-            "prune" = true
-            "selfHeal" = true
+          "prune"    = true
+          "selfHeal" = true
         }
-        "syncOptions" = [
-          "CreateNamespace=true",
-        ]
+        "syncOptions" = {
+          "CreateNamespace" = true
+        }
       }
     }
   }
