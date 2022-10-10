@@ -79,9 +79,9 @@ resource "kubectl_manifest" "app" {
           "prune"    = true
           "selfHeal" = true
         }
-        "syncOptions" = {
-          "CreateNamespace" = true
-        }
+        "syncOptions" = [
+          { "CreateNamespace" = true }
+        ]
       }
     }
   })
