@@ -24,7 +24,7 @@ resource "kubernetes_manifest" "application_argocd___var_chart_" {
             },
           ]
           "releaseName" = var.release
-        #   "values"      = var.values
+          "values"      = var.values
         }
         "repoURL"        = var.repository
         "targetRevision" = var.chart_version
