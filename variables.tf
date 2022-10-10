@@ -51,7 +51,7 @@ variable "sa" {
 }
 
 variable "values" {
-  type = map(any)
+  # type = map(any)
 }
 
 variable "value_arn" {
