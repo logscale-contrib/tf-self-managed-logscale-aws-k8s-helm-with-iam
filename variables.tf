@@ -29,11 +29,6 @@ variable "namespace" {
   description = "(optional) describe your variable"
 }
 
-variable "create_namespace" {
-  type    = bool
-  default = false
-}
-
 variable "sa" {
 
 }
