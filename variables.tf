@@ -77,3 +77,10 @@ variable "project" {
   type    = string
   default = "default"
 }
+
+
+variable "create_namespace" {
+  type = bool
+  default = false
+  description = "(optional) describe your variable"
+}
