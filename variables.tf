@@ -93,7 +93,11 @@ variable "eks_cluster_id" {
   description = "(optional) describe your variable"
   default     = null
 }
-
+variable "karpenter_provisioners" {
+  type = list(any)
+  description = "(optional) describe your variable"
+  default = null
+}
 
 variable "create_namespace" {
   type        = bool
