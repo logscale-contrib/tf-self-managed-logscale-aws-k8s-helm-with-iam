@@ -75,6 +75,16 @@ variable "attach_karpenter_controller_policy" {
   type    = bool
   default = false
 }
+variable "eks_karpenter_iam_role_name" {
+  type = string
+  default = null
+  description = "(optional) describe your variable"
+}
+variable "eks_karpenter_iam_role_arn" {
+  type = string
+  default = null
+  description = "(optional) describe your variable"
+}
 
 variable "eks_cluster_id" {
   type        = string
