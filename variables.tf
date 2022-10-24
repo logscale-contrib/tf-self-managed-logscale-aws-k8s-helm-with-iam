@@ -34,12 +34,16 @@ variable "sa" {
 }
 
 variable "values" {
+  type     = list[string]
+  default  = null
+  nullable = true
   # type = map(any)
 }
 variable "set" {
   type        = list(any)
   description = "(optional) describe your variable"
-  default     = []
+  default     = null
+  nullable    = true
 }
 variable "value_arn" {
 
@@ -76,13 +80,13 @@ variable "attach_karpenter_controller_policy" {
   default = false
 }
 variable "eks_karpenter_iam_role_name" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "(optional) describe your variable"
 }
 variable "eks_karpenter_iam_role_arn" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "(optional) describe your variable"
 }
 
