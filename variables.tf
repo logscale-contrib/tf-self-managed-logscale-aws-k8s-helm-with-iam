@@ -34,7 +34,7 @@ variable "sa" {
 }
 
 variable "values" {
-  type    = map(any)
+  type    = list(string)
   default = ["novalues:provided"]
   # type = map(any)
 }
