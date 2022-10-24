@@ -12,7 +12,7 @@ module "release" {
     deploy  = 1
   }
 
-  values = yamlencode(var.values)
+  values = split("\n", yamlencode(var.values))
   set = concat(var.set, [
     {
       "name"  = var.value_arn

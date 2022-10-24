@@ -34,8 +34,8 @@ variable "sa" {
 }
 
 variable "values" {
-  type     = list(string)
-  default  = null
+  type     = map(any)
+  default  = { "novalues" : "provided" }
   nullable = true
   # type = map(any)
 }
