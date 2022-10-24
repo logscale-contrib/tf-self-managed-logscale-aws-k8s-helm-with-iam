@@ -2,8 +2,10 @@ module "release" {
   source  = "terraform-module/release/helm"
   version = "2.8.0"
 
-  namespace  = var.namespace
-  repository = var.repository
+  namespace        = var.namespace
+  repository       = var.repository
+  create_namespace = var.create_namespace
+
   app = {
     name    = var.release
     version = var.chart_version
