@@ -29,10 +29,7 @@ module "irsa" {
     }
   }
 
-  tags = {
-    Environment = "dev"
-    Terraform   = "true"
-  }
+  
 }
 
 
