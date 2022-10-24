@@ -36,7 +36,10 @@ variable "sa" {
 variable "values" {
   # type = map(any)
 }
-
+variable "set" {
+  type        = list(any)
+  description = "(optional) describe your variable"
+}
 variable "value_arn" {
 
 }
@@ -75,7 +78,7 @@ variable "project" {
 
 
 variable "create_namespace" {
-  type = bool
-  default = false
+  type        = bool
+  default     = false
   description = "(optional) describe your variable"
 }

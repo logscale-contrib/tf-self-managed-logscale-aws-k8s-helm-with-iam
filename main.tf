@@ -1,45 +1,24 @@
-resource "kubectl_manifest" "app" {
-  yaml_body = yamlencode({
-    "apiVersion" = "argoproj.io/v1alpha1"
-    "kind"       = "Application"
-    "metadata" = {
-      "finalizers" = [
-        "resources-finalizer.argocd.argoproj.io",
-      ]
-      "name"      = var.chart
-      "namespace" = "argocd"
+module "release" {
+  source  = "terraform-module/release/helm"
+  version = "2.8.0"
+
+  namespace  = var.namespace
+  repository = var.repository
+  app = {
+    name    = var.release
+    version = var.chart_version
+    chart   = var.chart
+    wait    = true
+    deploy  = 1
+  }
+
+  valeus = var.values
+  set = concat(var.set, [
+    {
+      "name"  = var.value_arn
+      "value" = module.irsa.iam_role_arn
     }
-    "spec" = {
-      "destination" = {
-        "server"    = "https://kubernetes.default.svc"
-        "namespace" = var.namespace
-      }
-      "project" = var.project
-      "source" = {
-        "chart" = var.chart
-        "helm" = {
-          "parameters" = [
-            {
-              "name"  = var.value_arn
-              "value" = module.irsa.iam_role_arn
-            },
-          ]
-          "releaseName" = var.release
-          "values"      = var.values
-        }
-        "repoURL"        = var.repository
-        "targetRevision" = var.chart_version
-      }
-      "syncPolicy" = {
-        "automated" = {
-          "prune"    = true
-          "selfHeal" = true
-        }
-        "syncOptions" = [
-          "CreateNamespace=${var.create_namespace}"
-        ]
-      }
-    }
-  })
+  ])
 }
+
 

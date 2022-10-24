@@ -10,7 +10,7 @@ terraform {
     }
     kubernetes = {
       version = "~> 2.11"
-    }    
+    }
     local = {
       version = "~> 2"
     }
