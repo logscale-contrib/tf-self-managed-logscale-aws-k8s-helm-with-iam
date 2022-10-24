@@ -34,16 +34,14 @@ variable "sa" {
 }
 
 variable "values" {
-  type     = map(any)
-  default  = { "novalues" : "provided" }
-  nullable = true
+  type    = map(any)
+  default = ["novalues:provided"]
   # type = map(any)
 }
 variable "set" {
   type        = list(any)
   description = "(optional) describe your variable"
   default     = []
-  nullable    = true
 }
 variable "value_arn" {
 
