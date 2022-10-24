@@ -12,7 +12,7 @@ module "release" {
     deploy  = 1
   }
 
-  valeus = var.values
+  values = var.values
   set = concat(var.set, [
     {
       "name"  = var.value_arn
