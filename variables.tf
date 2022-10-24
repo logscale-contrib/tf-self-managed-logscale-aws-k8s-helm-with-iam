@@ -42,7 +42,7 @@ variable "values" {
 variable "set" {
   type        = list(any)
   description = "(optional) describe your variable"
-  default     = null
+  default     = []
   nullable    = true
 }
 variable "value_arn" {
