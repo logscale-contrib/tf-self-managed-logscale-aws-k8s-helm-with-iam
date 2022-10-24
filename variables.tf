@@ -70,10 +70,20 @@ variable "attach_load_balancer_controller_policy" {
   default = false
 
 }
+variable "attach_karpenter_controller_policy" {
+  type    = bool
+  default = false
+}
 
-variable "project" {
-  type    = string
-  default = "default"
+variable "eks_cluster_id" {
+  type = string
+  description = "(optional) describe your variable"
+  optional = true
+}
+variable "eks_cluster_endpoint" {
+  type = string
+  description = "(optional) describe your variable"
+  optional = true
 }
 
 

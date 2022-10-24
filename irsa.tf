@@ -13,6 +13,15 @@ module "irsa" {
 
   attach_load_balancer_controller_policy = var.attach_load_balancer_controller_policy
 
+  attach_karpenter_controller_policy = var.attach_karpenter_controller_policy
+
+  karpenter_tag_key               = "karpenter.sh/discovery/${var.uniqueName}"
+  karpenter_controller_cluster_id = var.eks_cluster_id
+  karpenter_controller_node_iam_role_arns = [
+    var.eks_karpenter_iam_role_arn
+  ]
+
+
   oidc_providers = {
     main = {
       provider_arn               = var.eks_oidc_provider_arn
