@@ -39,6 +39,7 @@ variable "values" {
 variable "set" {
   type        = list(any)
   description = "(optional) describe your variable"
+  default     = []
 }
 variable "value_arn" {
 
@@ -76,9 +77,9 @@ variable "attach_karpenter_controller_policy" {
 }
 
 variable "eks_cluster_id" {
-  type = string
+  type        = string
   description = "(optional) describe your variable"
-  default = null
+  default     = null
 }
 
 
