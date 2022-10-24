@@ -4,12 +4,13 @@ module "release" {
 
   namespace        = var.namespace
   repository       = var.repository
-  create_namespace = var.create_namespace
+  
 
   app = {
     name    = var.release
     version = var.chart_version
     chart   = var.chart
+    create_namespace = var.create_namespace
     wait    = true
     deploy  = 1
   }
