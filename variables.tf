@@ -78,12 +78,7 @@ variable "attach_karpenter_controller_policy" {
 variable "eks_cluster_id" {
   type = string
   description = "(optional) describe your variable"
-  optional = true
-}
-variable "eks_cluster_endpoint" {
-  type = string
-  description = "(optional) describe your variable"
-  optional = true
+  default = null
 }
 
 
