@@ -28,8 +28,8 @@ spec:
   subnetSelector:
     Name: "*public*"
   securityGroupSelector:
-    karpenter.sh/discovery/logscale-${local.env}: logscale-${local.env}
+    karpenter.sh/discovery/${var.uniqueName}: ${var.uniqueName}
   tags:
-    karpenter.sh/discovery/logscale-${local.env}: logscale-${local.env}    
+    karpenter.sh/discovery/${var.uniqueName}: ${var.uniqueName}    
 YAML
 }
