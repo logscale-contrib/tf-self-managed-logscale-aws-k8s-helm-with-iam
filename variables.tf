@@ -97,6 +97,7 @@ variable "karpenter_provisioners" {
   type = map
   description = "(optional) describe your variable"
   default = null
+  nullable = true
 }
 
 variable "create_namespace" {

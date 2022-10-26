@@ -7,6 +7,7 @@ resource "aws_iam_instance_profile" "karpenter" {
 resource "kubectl_manifest" "karpenter_provisioners" {
   depends_on = [
     module.release,
+    aws_iam_instance_profile.karpenter,
     kubectl_manifest.AWSNodeTemplate
   ]
   for_each  = var.karpenter_provisioners
