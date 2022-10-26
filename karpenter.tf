@@ -25,13 +25,11 @@ kind: AWSNodeTemplate
 metadata:
   name: default
 spec:
-  subnetSelector:                             # required
-    kubernetes.io/cluster/${var.uniqueName}: "shared"
-  securityGroupSelector:                      # required, when not using launchTemplate
-    karpenter.sh/discovery/${var.uniqueName}: ${var.uniqueName}
-  instanceProfile: ${aws_iam_instance_profile.karpenter[0].name}          # optional, if already set in controller args
-  # launchTemplate: MyLaunchTemplate            # optional, see Launch Template documentation
-  # tags:
-  #   InternalAccountingTag: "1234"             # optional, add tags for your own use
+  subnetSelector:
+    Name: "*public*"
+  securityGroupSelector:
+    karpenter.sh/discovery/logscale-${local.env}: logscale-${local.env}
+  tags:
+    karpenter.sh/discovery/logscale-${local.env}: logscale-${local.env}    
 YAML
 }
