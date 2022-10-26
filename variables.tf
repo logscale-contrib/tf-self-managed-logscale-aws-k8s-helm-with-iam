@@ -94,7 +94,7 @@ variable "eks_cluster_id" {
   default     = null
 }
 variable "karpenter_provisioners" {
-  type = list(any)
+  type = map
   description = "(optional) describe your variable"
   default = null
 }
