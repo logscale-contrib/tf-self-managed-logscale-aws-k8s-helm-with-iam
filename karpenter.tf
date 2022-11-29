@@ -16,7 +16,7 @@ resource "kubectl_manifest" "karpenter_provisioners" {
 
 resource "kubectl_manifest" "AWSNodeTemplate" {
   count = var.attach_karpenter_controller_policy ? 1 : 0
-  
+
   depends_on = [
     module.release
   ]
@@ -28,6 +28,7 @@ metadata:
 spec:
   subnetSelector:
     Name: "*public*"
+    karpenter.sh/discovery/${var.uniqueName}: ${var.uniqueName}
   securityGroupSelector:
     karpenter.sh/discovery/${var.uniqueName}: ${var.uniqueName}
   tags:
